@@ -1,11 +1,18 @@
 package com.zack.net.Student.StudentManagement.entities;
 
-import lombok.*;
 
 import java.time.LocalDate;
 
 
 public class Student {
+
+
+    private String firstName;
+    private String lastName;
+    private LocalDate dateOfBirth;
+    private String email;
+    private Integer age;
+
     public String getFirstName() {
         return firstName;
     }
@@ -22,17 +29,10 @@ public class Student {
         return email;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
-
-    private String firstName;
-    private String lastName;
-    private LocalDate dateOfBirth;
-    private String email;
-    private int age;
-
-    public Student(String firstName, String lastName, LocalDate dateOfBirth, String email, int age) {
+    public Student(String firstName, String lastName, LocalDate dateOfBirth, String email, Integer age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -57,7 +57,7 @@ public class Student {
         this.email = email;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }
