@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/students")
-public class StudentContoller {
+public class StudentController {
     @Autowired
     private InMemoryStudentService studentService;
 
