@@ -13,8 +13,12 @@ import java.util.List;
 public class InMemoryStudentService implements StudentServiceImpl {
 
 
-    @Autowired
-    private InMemoryStudentServiceDao studentServiceDao;
+    private final InMemoryStudentServiceDao studentServiceDao;
+
+    public InMemoryStudentService(InMemoryStudentServiceDao studentServiceDao) {
+        this.studentServiceDao = studentServiceDao;
+    }
+
     @Override
     public Student save(Student student) {
         return studentServiceDao.save(student);

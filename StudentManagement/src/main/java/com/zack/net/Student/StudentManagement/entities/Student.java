@@ -1,17 +1,36 @@
 package com.zack.net.Student.StudentManagement.entities;
 
 
+import jakarta.persistence.*;
+
+
+
 import java.time.LocalDate;
+import java.time.Period;
 
-
+@Entity
+@Table(name = "student")
 public class Student {
-
-
+    @Id
+    @GeneratedValue
+    private Integer Id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
+    @Column(unique = true)
     private String email;
+
+
+    @Transient
     private Integer age;
+
+    public Student() {
+
+    }
+
+    public Integer getId() {
+        return Id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -30,9 +49,11 @@ public class Student {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
-    public Student(String firstName, String lastName, LocalDate dateOfBirth, String email, Integer age) {
+
+    public Student(Integer id, String firstName, String lastName, LocalDate dateOfBirth, String email, Integer age) {
+        Id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -40,7 +61,9 @@ public class Student {
         this.age = age;
     }
 
-
+    public void setId(Integer id) {
+        Id = id;
+    }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
